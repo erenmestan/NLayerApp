@@ -1,17 +1,13 @@
 ﻿using NLayer.Core.UnitOfWorks;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace NLayer.Repository.UnitOfWorks
 {
-    public class UnitOfWorks : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
 
-        public UnitOfWorks(AppDbContext context)
+        public UnitOfWork(AppDbContext context)
         {
             _context=context;
         }
