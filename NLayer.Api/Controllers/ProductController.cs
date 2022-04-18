@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.Api.Filters;
 using NLayer.Core;
@@ -8,7 +7,7 @@ using NLayer.Core.Services;
 
 namespace NLayer.Api.Controllers
 {
-    
+
     public class ProductController : CustomBaseController
     {
         private readonly IMapper _mapper;
@@ -29,9 +28,9 @@ namespace NLayer.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            var products= await _service.GetAllAsync();
-            var productDtos= _mapper.Map<List<ProductDto>>(products.ToList());
-            return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200,productDtos));
+            var products = await _service.GetAllAsync();
+            var productDtos = _mapper.Map<List<ProductDto>>(products.ToList());
+            return CreateActionResult(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
         }
         [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
@@ -52,7 +51,7 @@ namespace NLayer.Api.Controllers
         public async Task<IActionResult> Update(ProductDto productDto)
         {
             await _service.UpdateAsync(_mapper.Map<Product>(productDto));
-            
+
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
         [HttpDelete("{id}")]
