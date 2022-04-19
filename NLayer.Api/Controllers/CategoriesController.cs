@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.Services;
 
 namespace NLayer.Api.Controllers
 {
-    
+
     public class CategoriesController : CustomBaseController
     {
         private readonly ICategoryService _categoryService;
